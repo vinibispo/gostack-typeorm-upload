@@ -23,7 +23,7 @@ class ImportTransactionsService {
     const transactions: CSVTransaction[] = [];
     const categories: string[] = [];
     parseCSV.on('data', async line => {
-      const { title, type, value, category } = line.map((cell: string) =>
+      const [title, type, value, category] = line.map((cell: string) =>
         cell.trim(),
       );
       if (!title || !type || !value) return;
